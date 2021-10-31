@@ -1,23 +1,15 @@
-const goods = [
-    { title: 'Shirt', price: 150 },
-    { title: 'Socks', price: 50 },
-    { title: 'Jacket', price: 350 },
-    { title: 'Shoes', price: 250 },
-];
 
 
-const $goodsList = document.querySelector('.goods-list');
-  
-const renderGoodsItem = ({ title, price }) => {
-    return `<div class="goods-item"><h3>${title}</h3><p>${price}</p><button class="by-btn">В корзину</button></div>`;
+let boxNextEx = document.getElementsByClassName('box-next-ex');
+
+let textBefore = document.getElementById('text-box__before-text');
+let textAfter = document.getElementById('text-box__after-text');
+
+
+let changeText = () => {
+    let str = textBefore.textContent;
+    console.log(str);
+
+    textAfter.innerText = str.replace(/^'|(\s)'|'(\s)|'$/g, '$1"$2');
+
 };
-  
-const renderGoodsList = (list = goods) => {
-    let goodsList = list.map(
-            item => renderGoodsItem(item)
-        ).join('');
-
-    $goodsList.insertAdjacentHTML('beforeend', goodsList);
-}
-  
-renderGoodsList();
